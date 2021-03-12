@@ -1,15 +1,25 @@
-// import React from "react";
-// import logo from "./logo.svg";
-// import "./App.css";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import Layout from "./components/Layout";
+import Header from "./components/Header";
+import Settings from "./components/Settings";
+import MainContainer from "./components/MainContainer";
 
-function App() {
+const App = () => {
   return (
-    <div className="bg-gray-200 flex items-center justify-center h-screen">
-      <button className="p-3 rounded-sm bg-blue-500 hover:bg-blue-700">
-        tailwind
-      </button>
-    </div>
+    <Router>
+      <Layout>
+        <Header />
+        <Switch>
+          <Route path="/settings">
+            <Settings />
+          </Route>
+          <Route path="/">
+            <MainContainer />
+          </Route>
+        </Switch>
+      </Layout>
+    </Router>
   );
-}
+};
 
 export default App;
